@@ -21,6 +21,10 @@ var results = [];
    }
  });
 
+ $(".export").click(function(){
+    exportData()
+ });
+
 // Keyboard shortcuts from 1 to 5 to represent the team members and space to represent silence
  $("button").keypress(function (e) {  
   if (e.which === 49) {
@@ -69,7 +73,10 @@ var results = [];
  //   console.log(minutes)
  // });
 
-   // alasql('SELECT * INTO XLSX("myfile.xlsx",{headers:true}) FROM ?',results); NEED TO IMPORT A LIIBRARY http://alasql.org
+// function that exports array results to excel .xlsx
+    function exportData() {
+        alasql("SELECT * INTO XLSX('speakers.xlsx',{headers:true}) FROM ? ",[results]);
+    }
 
 //  function timeConversation(member){
 //    this.member = member;
