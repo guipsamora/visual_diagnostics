@@ -15,10 +15,10 @@ $(document).ready(function() {
    } else {
       getTime();
       // pushes member and minutes since timer started to array results
-      results.push([this.className, time]);
+      results.push([this.id, time]);
       console.log(results);
    }
- });
+  });
 
 // export array results to excel xlsx file and clean the results array
   $(".export").click(function(){
@@ -30,22 +30,32 @@ $(document).ready(function() {
   $("button").keypress(function (e) {  
     if (e.which === 49) {
         getTime();
-        results.push(["Member A", minutes]);
+        results.push(["Member A", time]);
+        console.log(results);
     } else if(e.which === 50){
         getTime();
-        results.push(["Member B", minutes]);
+        results.push(["Member B", time]);
+        console.log(results);
     } else if(e.which === 51){
         getTime();
-        results.push(["Member C", minutes]);
+        results.push(["Member C", time]);
+        console.log(results);
     } else if(e.which === 52){
         getTime();
-        results.push(["Member D", minutes]);
+        results.push(["Member D", time]);
+        console.log(results);
     } else if(e.which === 53){
         getTime();
-        results.push(["Member E", minutes]);
-    } else if(e.which === 32){
+        results.push(["Member E", time]);
+        console.log(results);
+    } else if(e.which === 54){
         getTime();
-        results.push(["Silence", minutes]);
+        results.push(["Member F", time]);
+        console.log(results);
+    } else if (e.which === 32){
+        getTime();
+        results.push(["Silence", time]);
+        console.log(results);
     }
   });
 
@@ -65,7 +75,7 @@ $(document).ready(function() {
     elapsed = new Date() - start;
     hours = "00";
     minutes = Math.floor(elapsed / 60000);
-    seconds = ((elapsed % 60000) / 1000).toFixed(0);
+    seconds = ((elapsed % 60000) / 1000);
     time = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
   }
 
