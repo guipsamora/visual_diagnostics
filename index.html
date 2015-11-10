@@ -13,24 +13,24 @@
    <script src="http://alasql.org/console/xlsx.core.min.js"></script>
 </head>
 <body>
-   <h1>Visual Tool</h1>
+   <div class="header">
+   <h1>Visual Diagnostics Tool</h1><img src="hpi_dschool_logo_web.png" id="logo"/>
+   </div>
    <div>
       <!-- Video tag and source -->
       <div class = "video">
-         <video width="640" heigh="360" controls>
+         <video width="640" heigh="360" controls id="video1">
            <source src="big_buck_bunny.mp4" type="video/mp4">
          </video>
+         <br>
+         <button class = "buttonText" onclick="nextButton()">Next Video</button>
       </div>
 
    </div>
-   <p>Start the timer</p>
-   <div>
-      <div class="start">
-            <button type="button" class="start">Start Timer</button>
-         </div>
-         <br>
+   <br><br><br><br>
+   <div id="buttons">
       <!-- Team members buttons -->
-      <div class = "teamMembers">
+      <div class = "flex-container teamMembers">
          <div>
             <button type="button" class = "button" id="Member A">A</button>
          </div>
@@ -40,7 +40,7 @@
          <div >
             <button type="button" class = "button" id="Member C">C</button>
          </div>
-         <br>
+         <br><br><br>
          <div>
             <button type="button" class = "button" id="Member D">D</button>
          </div>
@@ -48,22 +48,24 @@
             <button type="button" class = "button" id="Member E">E</button>
          </div>
          <div>
-            <button type="button" class = "button" id="Member F">F</button>
+            <button type="button" class = "button" id="Member F" alt=>F</button>
          </div>
       </div>
       <div>
-      <br>
+      <br><br><br><br>
       <div class="silence">
-         <button type="button" class = "button1" id="Silence">Silence</button>
+         <button type="button" class = "buttonText" id="Silence">Silence</button>
       </div>
       <div class="parallel">
-         <button type="button" class = "button1" id="Parallel Talk">Parallel Talk</button>
+         <button type="button" class = "buttonText" id="Parallel Talk">Parallel Talk</button>
       </div>
       </div>
-      <br>
-      <input type="text" placeholder="Team Name" id="team"></input>
+      <div class="flex-container" id="flex-container">
+      </div>
+      <br><br><br><br>
+      <input type="text" placeholder="Team Name / File Name" id="team"></input>
       <div class="export values">
-         <button type="button" class = "button" id="Export">Export</button>
+         <button type="button" class = "buttonText" id="Export">Export</button>
       </div>
    </div>
    <!-- JS tag -->

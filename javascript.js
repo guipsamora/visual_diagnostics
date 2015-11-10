@@ -16,9 +16,15 @@ $(document).ready(function() {
       getTime();
       // pushes member and minutes since timer started to array results
       results.push([this.id, time]);
+      // resultsOnScreen();
       console.log(results);
    }
   });
+
+// starts the timer when the video begins to play
+  $("video").on("play" || "pause", function(){
+    start = new Date();
+  })
 
 // export array results to excel xlsx file and clean the results array
   $(".export").click(function(){
@@ -59,6 +65,7 @@ $(document).ready(function() {
     }
   });
 
+
 // function that exports array results to excel .xlsx
   function exportData() {
       team = $("#team").val();
@@ -79,4 +86,32 @@ $(document).ready(function() {
     time = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
   }
 
+// displays time stamps in the HTML page
+//   function resultsOnScreen(){
+//   for (var j = 0; j < results.length; j++){
+//           $("#flex-container").append("<div class=\"flex-item headline" + j + "\">"+results[j][0] +"</div>");
+//           $("#flex-container").append("<div class=\"flex-item headline" + j + "\">"+results[j][1] +"</div>");
+//           $("#flex-container").removeClass("flex-item headline" + j + "");
+//     }
+// }
+
 });
+
+
+var myVideo = document.getElementById("video1");
+// PLACE ALL VIDEOS' NAMES HERE
+var videoList = ['big_buck_bunny.mp4','test.mp4','test2.mp4'];
+var index = videoList.indexOf(window.currentVideoName);
+
+//Next video button
+function nextButton(){
+  index = index + 1;
+
+  if (index === videoList.length){
+    index = 0;
+    myVideo.src = videoList[index];
+  } else {
+    myVideo.src = videoList[index];
+    window.currentVideoName = videoList[index];
+  }
+}
