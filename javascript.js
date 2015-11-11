@@ -72,7 +72,7 @@ $(document).ready(function() {
 
 // function that exports array results to excel .xlsx
   function exportData() {
-      team = $("#team").val();
+      team = $("#team_name_input").val();
       alasql("SELECT * INTO XLSX(\'"+ team + ".xlsx\',{headers:true}) FROM ? ",[results]);
   }
 
