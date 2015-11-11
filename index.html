@@ -23,7 +23,8 @@
            <source src="big_buck_bunny.mp4" type="video/mp4">
          </video>
          <br>
-         <button class = "buttonText" onclick="nextButton()">Next Video</button>
+         <button class = "buttonText" onclick="nextButton()" id="nextVideo">Next Video >></button>
+         <!-- <input type="file"> -->
       </div>
 
    </div>
@@ -32,23 +33,23 @@
       <!-- Team members buttons -->
       <div class = "flex-container teamMembers">
          <div>
-            <button type="button" class = "button" id="Member A">A</button>
+            <button type="button" class = "button" id="member_A">A</button>
          </div>
          <div>
-            <button type="button" class = "button" id="Member B">B</button>
+            <button type="button" class = "button" id="member_B">B</button>
          </div>
          <div >
-            <button type="button" class = "button" id="Member C">C</button>
+            <button type="button" class = "button" id="member_C">C</button>
          </div>
          <br><br><br>
          <div>
-            <button type="button" class = "button" id="Member D">D</button>
+            <button type="button" class = "button" id="member_D">D</button>
          </div>
          <div>
-            <button type="button" class = "button" id="Member E">E</button>
+            <button type="button" class = "button" id="member_E">E</button>
          </div>
          <div>
-            <button type="button" class = "button" id="Member F" alt=>F</button>
+            <button type="button" class = "button" id="member_F" alt=>F</button>
          </div>
       </div>
       <div>
@@ -63,7 +64,7 @@
       <div class="flex-container" id="flex-container">
       </div>
       <br><br><br><br>
-      <input type="text" placeholder="Team Name / File Name" id="team"></input>
+      <input type="text" placeholder="File Name" id="team_name_input" width = "400px"></input>
       <div class="export values">
          <button type="button" class = "buttonText" id="Export">Export</button>
       </div>

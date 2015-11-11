@@ -7,17 +7,20 @@ body {
 
 .header {
   width: 100%;
-  height: 200px;
+  height: 150px;
 }
 
 .header img {
   float: right;
   /*width: 100px;*/
   /*height: 100px;*/
+  margin-right: 35px;
 }
 
 .header h1 {
-  /*position: relative;*/
+  position: relative;
+  text-align: center;
+  width:100%;
   top: 18px;
   left: 10px;
 }
@@ -34,10 +37,11 @@ body {
   float: right;
 }
 
-.button {
+/*#member_A {
   width: 50px;
   height: 50px;
-  background-color: #7EC0EE;
+  background-color: #ff7500;
+  color:#fff ;
   border-style: none;
   margin: 5px;
   -webkit-transition: background-color 1s;
@@ -49,28 +53,47 @@ body {
   box-shadow: 3px 3px 2px rgba(100,174,177, 0.5);
   outline: none;
   float: left;
+};*/
+
+.button {
+  width: 50px;
+  height: 50px;
+  background-color: #ff7500;
+  color:#fff ;
+  border-style: none;
+  margin: 5px;
+  -webkit-transition: background-color 0.5s;
+  -o-transition: background-color 0.5s;
+  transition:   background-color 0.5s;
+  border-radius: 5px;
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  box-shadow: 3px 3px 2px rgba(100,174,177, 0.5);
+  outline: none;
+  float: left;
   
 }
 
 .button:hover {
   color: #fff;
-  background-color: #8E388E;
+  background-color: #ff5000;
   box-shadow: 3px 3px 2px rgba(100,174,177, 0.5);
-  -webkit-transform:  background-color: #8E388E;
-  -ms-transform:  background-color: #8E388E;
-  -o-transform:   background-color: #8E388E;
-  transform:  background-color: #8E388E;
-  content: "Nice";
-
 }
 
 .button:active {
   color: #fff;
-  background-color: #8E388E;
-  box-shadow: 0px 0px 0px rgba(100,174,177, 0.9);
+  background-color: #ff5000;
+  box-shadow: 0px 0px 0px rgba(100,174,177, 0.2);
   position: relative;
   top: 2px;
 }
+
+/*.button:focus {
+  color: #fff;
+  box-shadow: 0px 0px 0px rgba(100,174,177, 0.9);
+  position: relative;
+  top: 2px;
+}*/
 
 .buttonText {
   width: 100px;
@@ -111,6 +134,10 @@ body {
   background-color: green;
 }
 
+#nextVideo {
+  font-size: 20px;
+  width: 150px;
+}
 
 .teamMember {
    background: 
@@ -121,8 +148,6 @@ video {
   vertical-align: center;
 }
 
-
-/*make the buttons more styled*/
-
-
-/**/
+input {
+  margin: 5px;
+}
