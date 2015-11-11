@@ -65,6 +65,10 @@ $(document).ready(function() {
     }
   });
 
+  $('#team_name_input').bind('keypress', function(e) {
+    e.stopPropagation(); 
+  });
+
 
 // function that exports array results to excel .xlsx
   function exportData() {
