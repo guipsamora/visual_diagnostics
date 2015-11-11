@@ -33,7 +33,7 @@ $(document).ready(function() {
   });
 
 // Keyboard shortcuts from 1 to 5 to represent the team members and space to represent silence
-  $("button").keypress(function (e) {  
+  $(document).keypress(function (e) {  
     if (e.which === 49) {
         getTime();
         results.push(["Member A", time]);
