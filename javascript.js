@@ -123,7 +123,7 @@ $(document).ready(function() {
     } else if (e.which === 32){
         $("#Silence").css({
         "color": "#fff",
-        "backgroundColor": "#ff5500",
+        "backgroundColor": "#7EC0EE",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
         "position": "relative",
         "top": "2px"
@@ -244,12 +244,7 @@ $(document).ready(function() {
   $('#nextVideo').bind('click', function(e) {
      e.stopPropagation(); 
   });
-var x;
 
-  function getVideoName(){
-    x = $("input").val()
-    console.log(x);
-  }
 // function that exports array results to excel .xlsx
   function exportData() {
       team = $("#team_name_input").val();
@@ -288,3 +283,23 @@ function nextButton(){
     window.currentVideoName = videoList[index];
   }
 }
+
+var mp4Vid = document.getElementById('mp4Source');
+var video = document.getElementById('video1');
+// Load the video you select from your hard disk
+  var x;
+  
+  $("#loadVideo").click(function(){
+    x = $(":file").val();
+    x = x.replace(/.*(\/|\\)/, '');
+    console.log(x);
+
+    console.log(mp4Vid);
+    $(mp4Vid).attr('src', x);
+    video.load();
+  });
+
+  $(":file").change(function(){
+    var newSource = $(":file").val();
+    console.log($(":file").val());
+  });
