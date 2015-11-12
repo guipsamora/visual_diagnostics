@@ -1,4 +1,6 @@
 
+/*HEADER & VIDEO*/
+
 body {
   width: 100%;
   margin: 100px;
@@ -29,12 +31,39 @@ body {
   text-align: center;
 }
 
+video {
+  vertical-align: center;
+}
+
+input {
+  margin: 5px;
+}
+
+
+
 .teamMember {
   float: left;
 }
 
+/*BUTTONS*/
+
+.buttonsTitle {
+  margin-left: 350px;
+}
+
 #button{
   float: right;
+}
+
+#buttons {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 10px;
+  width: 245px;
+  float: left;
+  margin-left: 350px;
+  margin-bottom: 100px;
 }
 
 /*#member_A {
@@ -56,8 +85,8 @@ body {
 };*/
 
 .button {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
   background-color: #ff7500;
   color:#fff ;
   border-style: none;
@@ -66,7 +95,7 @@ body {
   -o-transition: background-color 0.5s;
   transition:   background-color 0.5s;
   border-radius: 5px;
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Lato', sans-serif;
   box-shadow: 3px 3px 2px rgba(100,174,177, 0.5);
   outline: none;
@@ -107,6 +136,7 @@ body {
   border-radius: 5px;
   font-size: 20px;
   font-family: 'Lato', sans-serif;
+  color: white;
   box-shadow: 3px 3px 2px rgba(100,174,177, 0.5);
   outline: none;
   float: left;
@@ -130,8 +160,17 @@ body {
   top: 2px;
 }
 
+#Silence {
+  width: 230px;
+  font-size: 25px;
+  font-color: white;
+}
+
 #Export {
   background-color: green;
+  width: 230px;
+  vertical-align: center;
+  font-color:white;
 }
 
 #nextVideo {
@@ -139,15 +178,15 @@ body {
   width: 150px;
 }
 
+#team_name_input {
+  width: 100%;
+  font-size: 20px;
+}
+
 .teamMember {
    background: 
 
 }
 
-video {
-  vertical-align: center;
-}
 
-input {
-  margin: 5px;
-}
+
