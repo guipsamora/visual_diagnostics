@@ -144,6 +144,7 @@ $(document).ready(function() {
         "outline": "none",
         });
         down[e.which] = null
+        resultsOnScreen();
         console.log(results);
     } else if (e.which === 50){
         memberBEnd = new Date() - memberBStart;
@@ -156,6 +157,7 @@ $(document).ready(function() {
         "outline": "none",
         });
         down[e.which] = null
+        resultsOnScreen();
         console.log(results);
     } else if (e.which === 51){
         memberCEnd = new Date() - memberCStart;
@@ -168,6 +170,7 @@ $(document).ready(function() {
         "outline": "none",
         });
         down[e.which] = null
+        resultsOnScreen();
         console.log(results);
     } else if (e.which === 52){
         memberDEnd = new Date() - memberDStart;
@@ -180,6 +183,7 @@ $(document).ready(function() {
         "outline": "none",
         });
         down[e.which] = null
+        resultsOnScreen();
         console.log(results);
     } else if (e.which === 53){
         memberEEnd = new Date() - memberEStart;
@@ -192,6 +196,7 @@ $(document).ready(function() {
         "outline": "none",
         });
         down[e.which] = null
+        resultsOnScreen();
         console.log(results);
     } else if (e.which === 54){
         memberFEnd = new Date() - memberFStart;
@@ -204,6 +209,7 @@ $(document).ready(function() {
         "outline": "none",
         });
         down[e.which] = null
+        resultsOnScreen();
         console.log(results);
     } else if (e.which === 32){
         silenceEnd = new Date() - silenceStart;
@@ -216,6 +222,7 @@ $(document).ready(function() {
         "outline": "none",
         });
         down[e.which] = null
+        resultsOnScreen();
         console.log(results);
     }
   });
@@ -233,6 +240,16 @@ $(document).ready(function() {
      e.stopPropagation(); 
   });
 
+// don't trigger the timestamps when click on the nextVideo 
+  $('#nextVideo').bind('click', function(e) {
+     e.stopPropagation(); 
+  });
+var x;
+
+  function getVideoName(){
+    x = $("input").val()
+    console.log(x);
+  }
 // function that exports array results to excel .xlsx
   function exportData() {
       team = $("#team_name_input").val();
@@ -246,20 +263,17 @@ $(document).ready(function() {
 
 
 // displays time stamps in the HTML page
-//   function resultsOnScreen(){
-//   for (var j = 0; j < results.length; j++){
-//           $("#flex-container").append("<div class=\"flex-item headline" + j + "\">"+results[j][0] +"</div>");
-//           $("#flex-container").append("<div class=\"flex-item headline" + j + "\">"+results[j][1] +"</div>");
-//           $("#flex-container").removeClass("flex-item headline" + j + "");
-//     }
-// }
+  function resultsOnScreen(){
+          var lastResult = results.length - 1;
+          $("table").append("<tr><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td></tr>");
+    }
 
 });
 
 
 var myVideo = document.getElementById("video1");
 // PLACE ALL VIDEOS' NAMES HERE
-var videoList = ['big_buck_bunny.mp4','test.mp4','test2.mp4'];
+var videoList = ['big_buck_bunny.mp4','test.mp4','test2.mp4','ChocolateScene.mp4'];
 var index = videoList.indexOf(window.currentVideoName);
 
 //Next video button

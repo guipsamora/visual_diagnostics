@@ -29,10 +29,13 @@ body {
 
 .video {
   text-align: center;
+  position: relative;
+  right: 170px;
 }
 
 video {
-  vertical-align: center;
+  vertical-align: right;
+  margin-left: 80px;
 }
 
 input {
@@ -48,7 +51,7 @@ input {
 /*BUTTONS*/
 
 .buttonsTitle {
-  margin-left: 350px;
+  margin-left: 15px;
 }
 
 #button{
@@ -62,7 +65,7 @@ input {
   border-radius: 10px;
   width: 245px;
   float: left;
-  margin-left: 350px;
+  margin-left: 20px;
   margin-bottom: 100px;
 }
 
@@ -188,5 +191,22 @@ input {
 
 }
 
+table {
+  float: right;
+  margin-right: 100px;
+  padding: 10px;
+}
 
+th {
+  font-size: 25px;
+  padding: 30px;
+}
 
+td {
+  font-size: 16px;
+  padding: 10px;
+}
+
+tr {
+  padding: 10px; 
+}
