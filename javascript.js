@@ -1,7 +1,6 @@
 $(document).ready(function() {
 
   var start = 0;
-  var elapsed = 0;
   var results = [];
   var team;
   var hours = 0;
@@ -9,6 +8,8 @@ $(document).ready(function() {
   var seconds = 0;
   var time = 0;
   var memberAStart = 0, memberBStart = 0, memberCStart = 0, memberDStart = 0, memberEStart = 0, memberFStart = 0, silenceStart = 0;
+  var memberAEnd = 0, memberBEnd = 0, memberCEnd = 0, memberDEnd = 0, memberEEnd = 0, memberFEnd = 0, silenceEnd = 0;
+  var down = {};
 
   $("button").click(function(){
       getTime();
@@ -29,11 +30,50 @@ $(document).ready(function() {
     clearResults();
   });
 
-// // Keyboard shortcuts from 1 to 5 to represent the team members 
+// Keyboard shortcuts from 1 to 5 to represent the team members 
   $(document).keydown(function (e) {  
     if (e.which === 49) {
-      memberAStart = new Date();
-      $("#member_A").css({//changes the button so it appered to being pressed
+        if (down['49'] == null) { // first press
+          memberAStart = new Date();
+          down['49'] = true; // record that the key's down
+        }
+    } else if (e.which === 50){
+        if (down['50'] == null) {
+          memberBStart = new Date();
+          down['50'] = true;
+        };
+    } else if (e.which === 51){
+        if (down['51'] == null) {
+          memberCStart = new Date();
+          down['51'] = true;
+        };
+    } else if (e.which === 52){
+        if (down['52'] == null) {
+          memberDStart = new Date();
+          down['52'] = true;
+        };
+    } else if (e.which === 53){
+        if (down['53'] == null) {
+          memberEStart = new Date();
+          down['53'] = true;
+        };
+    } else if (e.which === 54){
+        if (down['54'] == null) {
+          memberFStart = new Date();
+          down['54'] = true;
+        };
+    } else if (e.which === 32){
+        if (down['32'] == null) {
+          silenceStart = new Date();
+          down['32'] = true;
+        };
+     }
+  });
+
+//changes the buttons' CSS so they are appearing to being pressed
+  $(document).keydown(function (e) {  
+    if (e.which === 49) {
+        $("#member_A").css({
         "color": "#fff",
         "backgroundColor": "#ff5500",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
@@ -41,8 +81,7 @@ $(document).ready(function() {
         "top": "2px"
         }); 
     } else if (e.which === 50){
-        memberBStart = new Date();
-        $("#member_B").css({//changes the button so it appered to being pressed
+        $("#member_B").css({
         "color": "#fff",
         "backgroundColor": "#ff5500",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
@@ -50,8 +89,7 @@ $(document).ready(function() {
         "top": "2px"
         }); 
     } else if (e.which === 51){
-        memberCStart = new Date();
-        $("#member_C").css({//changes the button so it appered to being pressed
+        $("#member_C").css({
         "color": "#fff",
         "backgroundColor": "#ff5500",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
@@ -59,8 +97,7 @@ $(document).ready(function() {
         "top": "2px"
         }); 
     } else if (e.which === 52){
-        memberDStart = new Date();
-        $("#member_D").css({//changes the button so it appered to being pressed
+        $("#member_D").css({
         "color": "#fff",
         "backgroundColor": "#ff5500",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
@@ -68,8 +105,7 @@ $(document).ready(function() {
         "top": "2px"
         }); 
     } else if (e.which === 53){
-        memberEStart = new Date();
-        $("#member_E").css({//changes the button so it appered to being pressed
+        $("#member_E").css({
         "color": "#fff",
         "backgroundColor": "#ff5500",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
@@ -77,8 +113,7 @@ $(document).ready(function() {
         "top": "2px"
         }); 
     } else if (e.which === 54){
-        memberFStart = new Date();
-        $("#member_F").css({//changes the button so it appered to being pressed
+        $("#member_F").css({
         "color": "#fff",
         "backgroundColor": "#ff5500",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
@@ -86,8 +121,7 @@ $(document).ready(function() {
         "top": "2px"
         }); 
     } else if (e.which === 32){
-        silenceStart = new Date();
-        $("#Silence").css({//changes the button so it appered to being pressed
+        $("#Silence").css({
         "color": "#fff",
         "backgroundColor": "#ff5500",
         "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
@@ -97,24 +131,23 @@ $(document).ready(function() {
     }
   });
 
-  $(document).bind('keydown', function(){
-        console.log('keydown');
-    });
-
 // Keyboard shortcuts from 1 to 5 to represent the team members and space to represent silence
   $(document).keyup(function (e) {  
     if (e.which === 49) {
-        getTime();
+        memberAEnd = new Date() - memberAStart;
+        getTime(memberAEnd);
         results.push(["Member A", time]);
-         $("#member_A").css({
+        $("#member_A").css({
         "color": "#fff",
         "backgroundColor": "#ff7500",
         "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
         "outline": "none",
         });
+        down[e.which] = null
         console.log(results);
     } else if (e.which === 50){
-        getTime();
+        memberBEnd = new Date() - memberBStart;
+        getTime(memberBEnd);
         results.push(["Member B", time]);
         $("#member_B").css({
         "color": "#fff",
@@ -122,9 +155,11 @@ $(document).ready(function() {
         "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
         "outline": "none",
         });
+        down[e.which] = null
         console.log(results);
     } else if (e.which === 51){
-        getTime();
+        memberCEnd = new Date() - memberCStart;
+        getTime(memberCEnd);
         results.push(["Member C", time]);
         $("#member_C").css({
         "color": "#fff",
@@ -132,9 +167,11 @@ $(document).ready(function() {
         "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
         "outline": "none",
         });
+        down[e.which] = null
         console.log(results);
     } else if (e.which === 52){
-        getTime();
+        memberDEnd = new Date() - memberDStart;
+        getTime(memberDEnd);
         results.push(["Member D", time]);
         $("#member_D").css({
         "color": "#fff",
@@ -142,9 +179,11 @@ $(document).ready(function() {
         "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
         "outline": "none",
         });
+        down[e.which] = null
         console.log(results);
     } else if (e.which === 53){
-        getTime();
+        memberEEnd = new Date() - memberEStart;
+        getTime(memberEEnd);
         results.push(["Member E", time]);
         $("#member_E").css({
         "color": "#fff",
@@ -152,9 +191,11 @@ $(document).ready(function() {
         "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
         "outline": "none",
         });
+        down[e.which] = null
         console.log(results);
     } else if (e.which === 54){
-        getTime();
+        memberFEnd = new Date() - memberFStart;
+        getTime(memberFEnd);
         results.push(["Member F", time]);
         $("#member_F").css({
         "color": "#fff",
@@ -162,9 +203,11 @@ $(document).ready(function() {
         "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
         "outline": "none",
         });
+        down[e.which] = null
         console.log(results);
     } else if (e.which === 32){
-        getTime();
+        silenceEnd = new Date() - silenceStart;
+        getTime(silenceEnd);
         results.push(["Silence", time]);
         $("#Silence").css({
         "color": "#fff",
@@ -172,21 +215,21 @@ $(document).ready(function() {
         "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
         "outline": "none",
         });
+        down[e.which] = null
         console.log(results);
     }
   });
 
 // get the difference between time ranges
-  function getTime(){
-    elapsed = new Date() - start;
+  function getTime(a){
     hours = "00";
-    minutes = Math.floor(elapsed / 60000);
-    seconds = ((elapsed % 60000) / 1000);
+    minutes = Math.floor(a / 60000);
+    seconds = ((a % 60000) / 1000);
     time = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
   }
 
 // don't trigger the timestamps when using the keyboards shortcuts
-  $('#team_name_input').bind('keyup keypress keydown', function(e) {
+  $('#team_name_input').bind('keyup keydown', function(e) {
      e.stopPropagation(); 
   });
 
