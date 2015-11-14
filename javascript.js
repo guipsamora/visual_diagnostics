@@ -74,59 +74,72 @@ $(document).ready(function() {
   $(document).keydown(function (e) {  
     if (e.which === 49) {
         $("#member_A").css({
-        "color": "#fff",
-        "backgroundColor": "#ff5500",
-        "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-        "position": "relative",
-        "top": "2px"
+            "color": "#ff5500",
+            "backgroundColor": "#fff",
+            "border": "solid",
+            "borderWidth": "2px",
+            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
+            "position": "relative",
+            "top": "2px"
+
         }); 
     } else if (e.which === 50){
         $("#member_B").css({
-        "color": "#fff",
-        "backgroundColor": "#ff5500",
-        "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-        "position": "relative",
-        "top": "2px"
+            "color": "#ff5500",
+            "backgroundColor": "#fff",
+            "border": "solid",
+            "borderWidth": "2px",
+            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
+            "position": "relative",
+            "top": "2px"
         }); 
     } else if (e.which === 51){
         $("#member_C").css({
-        "color": "#fff",
-        "backgroundColor": "#ff5500",
-        "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-        "position": "relative",
-        "top": "2px"
+            "color": "#ff5500",
+            "backgroundColor": "#fff",
+            "border": "solid",
+            "borderWidth": "2px",
+            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
+            "position": "relative",
+            "top": "2px"
         }); 
     } else if (e.which === 52){
         $("#member_D").css({
-        "color": "#fff",
-        "backgroundColor": "#ff5500",
-        "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-        "position": "relative",
-        "top": "2px"
+            "color": "#ff5500",
+            "backgroundColor": "#fff",
+            "border": "solid",
+            "borderWidth": "2px",
+            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
+            "position": "relative",
+            "top": "2px"
         }); 
     } else if (e.which === 53){
         $("#member_E").css({
-        "color": "#fff",
-        "backgroundColor": "#ff5500",
-        "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-        "position": "relative",
-        "top": "2px"
+            "color": "#ff5500",
+            "backgroundColor": "#fff",
+            "border": "solid",
+            "borderWidth": "2px",
+            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
+            "position": "relative",
+            "top": "2px"
         }); 
     } else if (e.which === 54){
         $("#member_F").css({
-        "color": "#fff",
-        "backgroundColor": "#ff5500",
-        "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-        "position": "relative",
-        "top": "2px"
+            "color": "#ff5500",
+            "backgroundColor": "#fff",
+            "border": "solid",
+            "borderWidth": "2px",
+            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
+            "position": "relative",
+            "top": "2px"
         }); 
     } else if (e.which === 32){
         $("#Silence").css({
-        "color": "#fff",
-        "backgroundColor": "#7EC0EE",
-        "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-        "position": "relative",
-        "top": "2px"
+            "color": "#fff",
+            "backgroundColor": "#8E388E",
+            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
+            "position": "relative",
+            "top": "2px"
         }); 
     }
   });
@@ -138,10 +151,10 @@ $(document).ready(function() {
         getTime(memberAEnd);
         results.push(["Member A", time]);
         $("#member_A").css({
-        "color": "#fff",
-        "backgroundColor": "#ff7500",
-        "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-        "outline": "none",
+            "color": "#fff",
+            "backgroundColor": "#ff7500",
+            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
+            "outline": "none",
         });
         down[e.which] = null
         resultsOnScreen();
@@ -151,10 +164,10 @@ $(document).ready(function() {
         getTime(memberBEnd);
         results.push(["Member B", time]);
         $("#member_B").css({
-        "color": "#fff",
-        "backgroundColor": "#ff7500",
-        "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-        "outline": "none",
+            "color": "#fff",
+            "backgroundColor": "#ff7500",
+            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
+            "outline": "none",
         });
         down[e.which] = null
         resultsOnScreen();
@@ -164,10 +177,10 @@ $(document).ready(function() {
         getTime(memberCEnd);
         results.push(["Member C", time]);
         $("#member_C").css({
-        "color": "#fff",
-        "backgroundColor": "#ff7500",
-        "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-        "outline": "none",
+            "color": "#fff",
+            "backgroundColor": "#ff7500",
+            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
+            "outline": "none",
         });
         down[e.which] = null
         resultsOnScreen();
@@ -177,10 +190,10 @@ $(document).ready(function() {
         getTime(memberDEnd);
         results.push(["Member D", time]);
         $("#member_D").css({
-        "color": "#fff",
-        "backgroundColor": "#ff7500",
-        "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-        "outline": "none",
+            "color": "#fff",
+            "backgroundColor": "#ff7500",
+            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
+            "outline": "none",
         });
         down[e.which] = null
         resultsOnScreen();
@@ -190,10 +203,10 @@ $(document).ready(function() {
         getTime(memberEEnd);
         results.push(["Member E", time]);
         $("#member_E").css({
-        "color": "#fff",
-        "backgroundColor": "#ff7500",
-        "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-        "outline": "none",
+            "color": "#fff",
+            "backgroundColor": "#ff7500",
+            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
+            "outline": "none",
         });
         down[e.which] = null
         resultsOnScreen();
@@ -203,10 +216,10 @@ $(document).ready(function() {
         getTime(memberFEnd);
         results.push(["Member F", time]);
         $("#member_F").css({
-        "color": "#fff",
-        "backgroundColor": "#ff7500",
-        "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-        "outline": "none",
+            "color": "#fff",
+            "backgroundColor": "#ff7500",
+            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
+            "outline": "none",
         });
         down[e.which] = null
         resultsOnScreen();
@@ -216,10 +229,10 @@ $(document).ready(function() {
         getTime(silenceEnd);
         results.push(["Silence", time]);
         $("#Silence").css({
-        "color": "#fff",
-        "backgroundColor": "#ff7500",
-        "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-        "outline": "none",
+            "color": "#fff",
+            "backgroundColor": "#7EC0EE",
+            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.9)",
+            "outline": "none",
         });
         down[e.which] = null
         resultsOnScreen();
@@ -240,8 +253,19 @@ $(document).ready(function() {
      e.stopPropagation(); 
   });
 
-// don't trigger the timestamps when click on the nextVideo 
+  $(document).keydown(function(e) {
+    if (e.which == 32) {
+        return false;
+    }
+});
+
+// don't trigger the timestamps when click on the nextVideo button
   $('#nextVideo').bind('click', function(e) {
+     e.stopPropagation(); 
+  });
+
+// don't trigger the timestamps when click on the export button
+  $('#Export').bind('click', function(e) {
      e.stopPropagation(); 
   });
 
@@ -256,16 +280,16 @@ $(document).ready(function() {
     results = [];
   }
 
-
 // displays time stamps in the HTML page
   function resultsOnScreen(){
           var lastResult = results.length - 1;
           $("table").append("<tr><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td></tr>");
-    }
+  }
 
 });
 
 
+// Use this part of code if you are going to use the Next Video button
 var myVideo = document.getElementById("video1");
 // PLACE ALL VIDEOS' NAMES HERE
 var videoList = ['big_buck_bunny.mp4','test.mp4','test2.mp4','ChocolateScene.mp4'];
