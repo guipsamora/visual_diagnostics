@@ -33,36 +33,43 @@ $(document).ready(function() {
 // Keyboard shortcuts from 1 to 5 to represent the team members 
   $(document).keydown(function (e) {  
     if (e.which === 49) {
+        $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
           memberAStart = new Date();
           down['49'] = true; // record that the key's down
         }
     } else if (e.which === 50){
+        $("#member_B").addClass('active');
         if (down['50'] == null) {
           memberBStart = new Date();
           down['50'] = true;
         };
     } else if (e.which === 51){
+        $("#member_C").addClass('active');
         if (down['51'] == null) {
           memberCStart = new Date();
           down['51'] = true;
         };
     } else if (e.which === 52){
+        $("#member_D").addClass('active');
         if (down['52'] == null) {
           memberDStart = new Date();
           down['52'] = true;
         };
     } else if (e.which === 53){
+        $("#member_E").addClass('active');
         if (down['53'] == null) {
           memberEStart = new Date();
           down['53'] = true;
         };
     } else if (e.which === 54){
+        $("#member_F").addClass('active');
         if (down['54'] == null) {
           memberFStart = new Date();
           down['54'] = true;
         };
     } else if (e.which === 32){
+        $("#Silence").addClass('activeText');
         if (down['32'] == null) {
           silenceStart = new Date();
           down['32'] = true;
@@ -70,170 +77,61 @@ $(document).ready(function() {
      }
   });
 
-//changes the buttons' CSS so they are appearing to being pressed
-  $(document).keydown(function (e) {  
-    if (e.which === 49) {
-        $("#member_A").css({
-            "color": "#ff5500",
-            "backgroundColor": "#fff",
-            "border": "solid",
-            "borderWidth": "2px",
-            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-            "position": "relative",
-            "top": "2px"
-
-        }); 
-    } else if (e.which === 50){
-        $("#member_B").css({
-            "color": "#ff5500",
-            "backgroundColor": "#fff",
-            "border": "solid",
-            "borderWidth": "2px",
-            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-            "position": "relative",
-            "top": "2px"
-        }); 
-    } else if (e.which === 51){
-        $("#member_C").css({
-            "color": "#ff5500",
-            "backgroundColor": "#fff",
-            "border": "solid",
-            "borderWidth": "2px",
-            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-            "position": "relative",
-            "top": "2px"
-        }); 
-    } else if (e.which === 52){
-        $("#member_D").css({
-            "color": "#ff5500",
-            "backgroundColor": "#fff",
-            "border": "solid",
-            "borderWidth": "2px",
-            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-            "position": "relative",
-            "top": "2px"
-        }); 
-    } else if (e.which === 53){
-        $("#member_E").css({
-            "color": "#ff5500",
-            "backgroundColor": "#fff",
-            "border": "solid",
-            "borderWidth": "2px",
-            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-            "position": "relative",
-            "top": "2px"
-        }); 
-    } else if (e.which === 54){
-        $("#member_F").css({
-            "color": "#ff5500",
-            "backgroundColor": "#fff",
-            "border": "solid",
-            "borderWidth": "2px",
-            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-            "position": "relative",
-            "top": "2px"
-        }); 
-    } else if (e.which === 32){
-        $("#Silence").css({
-            "color": "#fff",
-            "backgroundColor": "#8E388E",
-            "boxShadow": "0px 0px 0px rgba(100,174,177, 0.9)",
-            "position": "relative",
-            "top": "2px"
-        }); 
-    }
-  });
-
 // Keyboard shortcuts from 1 to 5 to represent the team members and space to represent silence
   $(document).keyup(function (e) {  
     if (e.which === 49) {
+        $("#member_A").removeClass('active');
         memberAEnd = new Date() - memberAStart;
         getTime(memberAEnd);
         results.push(["Member A", time]);
-        $("#member_A").css({
-            "color": "#fff",
-            "backgroundColor": "#ff7500",
-            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-            "outline": "none",
-        });
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 50){
+        $("#member_B").removeClass('active'); 
         memberBEnd = new Date() - memberBStart;
         getTime(memberBEnd);
         results.push(["Member B", time]);
-        $("#member_B").css({
-            "color": "#fff",
-            "backgroundColor": "#ff7500",
-            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-            "outline": "none",
-        });
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 51){
+        $("#member_C").removeClass('active');
         memberCEnd = new Date() - memberCStart;
         getTime(memberCEnd);
         results.push(["Member C", time]);
-        $("#member_C").css({
-            "color": "#fff",
-            "backgroundColor": "#ff7500",
-            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-            "outline": "none",
-        });
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 52){
+        $("#member_D").removeClass('active');
         memberDEnd = new Date() - memberDStart;
         getTime(memberDEnd);
         results.push(["Member D", time]);
-        $("#member_D").css({
-            "color": "#fff",
-            "backgroundColor": "#ff7500",
-            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-            "outline": "none",
-        });
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 53){
+        $("#member_E").removeClass('active');
         memberEEnd = new Date() - memberEStart;
         getTime(memberEEnd);
         results.push(["Member E", time]);
-        $("#member_E").css({
-            "color": "#fff",
-            "backgroundColor": "#ff7500",
-            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-            "outline": "none",
-        });
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 54){
+        $("#member_F").removeClass('active');
         memberFEnd = new Date() - memberFStart;
         getTime(memberFEnd);
         results.push(["Member F", time]);
-        $("#member_F").css({
-            "color": "#fff",
-            "backgroundColor": "#ff7500",
-            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.5)",
-            "outline": "none",
-        });
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 32){
+        $("#Silence").removeClass('activeText');
         silenceEnd = new Date() - silenceStart;
         getTime(silenceEnd);
         results.push(["Silence", time]);
-        $("#Silence").css({
-            "color": "#fff",
-            "backgroundColor": "#7EC0EE",
-            "boxShadow": "3px 3px 2px rgba(100,174,177, 0.9)",
-            "outline": "none",
-        });
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
@@ -257,7 +155,7 @@ $(document).ready(function() {
     if (e.which == 32) {
         return false;
     }
-});
+  });
 
 // don't trigger the timestamps when click on the nextVideo button
   $('#nextVideo').bind('click', function(e) {
