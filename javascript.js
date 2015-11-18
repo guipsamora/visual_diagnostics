@@ -24,12 +24,6 @@ $(document).ready(function() {
     start = new Date();
   })
 
-// export array results to excel xlsx file and clean the results array
-  $(".export").click(function(){
-    exportData();
-    clearResults();
-  });
-
 // Keyboard shortcuts from 1 to 5 to represent the team members 
   $(document).keydown(function (e) {  
     if (e.which === 49) {
@@ -164,7 +158,9 @@ $(document).ready(function() {
 
 // don't trigger the timestamps when click on the export button
   $('#Export').bind('click', function(e) {
-     e.stopPropagation(); 
+    e.stopPropagation();
+    exportData();
+    clearResults(); 
   });
 
 // function that exports array results to excel .xlsx
