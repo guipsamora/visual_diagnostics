@@ -4,8 +4,6 @@
    <meta charset="UTF-8">
    <title>Visual Diagnostics Tool</title>
    <link type="text/css" rel="stylesheet" href="style.css"></link>
-   <!-- Bootstrap CDN -->
-   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-MfvZlkHCEqatNoGiOXveE8FIwMzZg4W85qfrfIFBfYc= sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
    <!-- jQuery CDN -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    <!--  Alasql CDN -->
@@ -17,60 +15,64 @@
    <h1>Visual Diagnostics Tool</h1><img src="hpi_dschool_logo_web.png" id="logo"/>
    </div>
    <div>
+      <h1 class="buttonsTitle">Team Members</h1>
+      <div id="buttons">
+         <!-- Team members buttons -->
+         <div class = "flex-container teamMembers">
+            <div>
+               <button type="button" class = "button" id="member_A">A</button>
+            </div>
+            <div>
+               <button type="button" class = "button" id="member_B">B</button>
+            </div>
+            <div >
+               <button type="button" class = "button" id="member_C">C</button>
+            </div>
+            <br><br><br>
+            <div>
+               <button type="button" class = "button" id="member_D">D</button>
+            </div>
+            <div>
+               <button type="button" class = "button" id="member_E">E</button>
+            </div>
+            <div>
+               <button type="button" class = "button" id="member_F" alt=>F</button>
+            </div>
+         </div>
+         <div>
+         <br><br><br><br>
+         <div class="silence">
+            <button type="button" class = "buttonText" id="Silence">Silence</button>
+         </div>
+         <!-- <div class="parallel">
+            <button type="button" class = "buttonText" id="Parallel Talk">Parallel Talk</button>
+         </div> -->
+         </div>
+         <br><br><br><br><br>
+         <input type="text" placeholder="File Name" id="team_name_input" width = "400px"></input>
+         <div class="export values">
+            <button type="button" class = "buttonText" id="Export">Export .XLS</button>
+         </div>
+      </div>
       <!-- Video tag and source -->
-      <div class = "video">
+      <!-- <div class = "video"> -->
          <video width="640" heigh="360" controls id="video1">
-           <source src="big_buck_bunny.mp4" type="video/mp4">
+           <source id='mp4Source' src="big_buck_bunny.mp4" type="video/mp4">
          </video>
-         <br>
-         <button class = "buttonText" onclick="nextButton()">Next Video</button>
-      </div>
-
+      <!-- </div> -->
+      <table>
+         <tr>
+            <th>Member</th>
+            <th>Time</th>
+         </tr>
+      </table> 
    </div>
-   <br><br><br><br>
-   <div id="buttons">
-      <!-- Team members buttons -->
-      <div class = "flex-container teamMembers">
-         <div>
-            <button type="button" class = "button" id="Member A">A</button>
-         </div>
-         <div>
-            <button type="button" class = "button" id="Member B">B</button>
-         </div>
-         <div >
-            <button type="button" class = "button" id="Member C">C</button>
-         </div>
-         <br><br><br>
-         <div>
-            <button type="button" class = "button" id="Member D">D</button>
-         </div>
-         <div>
-            <button type="button" class = "button" id="Member E">E</button>
-         </div>
-         <div>
-            <button type="button" class = "button" id="Member F" alt=>F</button>
-         </div>
-      </div>
-      <div>
-      <br><br><br><br>
-      <div class="silence">
-         <button type="button" class = "buttonText" id="Silence">Silence</button>
-      </div>
-      <div class="parallel">
-         <button type="button" class = "buttonText" id="Parallel Talk">Parallel Talk</button>
-      </div>
-      </div>
-      <div class="flex-container" id="flex-container">
-      </div>
-      <br><br><br><br>
-      <input type="text" placeholder="Team Name / File Name" id="team_name_input"></input>
-      <div class="export values">
-         <button type="button" class = "buttonText" id="Export">Export</button>
-      </div>
-   </div>
-   <!-- JS tag -->
+   <button class = "buttonText" onclick="nextButton()" id="nextVideo">Next Video >></button>
+   <input type="file" id="videoSource">
+   <button class = "buttonText" id="loadVideo">Load Video</button>
+   <br><br>
+      
+   <!-- JavaScript tag -->
    <script src="javascript.js"></script>
-   <!-- Bootstrap tag -->
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha256-Sk3nkD6mLTMOF0EOpNtsIry+s1CsaqQC1rVLTAy+0yc= sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
 </body>
 </html>
