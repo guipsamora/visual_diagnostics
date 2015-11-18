@@ -1,3 +1,7 @@
+
+var vid = document.getElementById('video1');
+
+
 $(document).ready(function() {
 
   var start = 0;
@@ -7,17 +11,18 @@ $(document).ready(function() {
   var minutes = 0;
   var seconds = 0;
   var time = 0;
-  var memberAStart = 0, memberBStart = 0, memberCStart = 0, memberDStart = 0, memberEStart = 0, memberFStart = 0, silenceStart = 0;
-  var memberAEnd = 0, memberBEnd = 0, memberCEnd = 0, memberDEnd = 0, memberEEnd = 0, memberFEnd = 0, silenceEnd = 0;
   var down = {};
 
-  $("button").click(function(){
-      getTime();
-      // pushes member and minutes since timer started to array results
-      results.push([this.id, time]);
-      // resultsOnScreen();
-      console.log(results);
-   });
+  // data entry constructor
+  var MemberAndTime = function(member, startTimer, endTimer){
+    this.member = member;
+    this.startTimer = startTimer;
+    this.endTimer = endTimer;
+  }
+
+  var a = new MemberAndTime();
+  var b = new MemberAndTime();
+  console.log(a);
 
 // starts the timer when the video begins to play
   $("video").on("play", function(){
@@ -29,13 +34,17 @@ $(document).ready(function() {
     if (e.which === 49) {
         $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
-          memberAStart = new Date();
+          // memberAStart = new Date();
+          a.startTimer = vid.currentTime;
+          console.log(vid.currentTime); 
           down['49'] = true; // record that the key's down
+
         }
     } else if (e.which === 50){
         $("#member_B").addClass('active');
         if (down['50'] == null) {
-          memberBStart = new Date();
+          // memberBStart = new Date();
+          b.startTimer = vid.currentTime;
           down['50'] = true;
         };
     } else if (e.which === 51){
@@ -75,33 +84,40 @@ $(document).ready(function() {
   $(document).keyup(function (e) {  
     if (e.which === 49) {
         $("#member_A").removeClass('active');
-        memberAEnd = new Date() - memberAStart;
-        getTime(memberAEnd);
-        results.push(["Member A", time]);
+        // memberAEnd = new Date() - memberAStart;
+        // getTime(memberAEnd);
+        a.member = "Member A";
+        a.endTimer = vid.currentTime;
+        console.log(vid.currentTime); 
+        results.push(a);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
+        console.log(a);
     } else if (e.which === 50){
         $("#member_B").removeClass('active'); 
-        memberBEnd = new Date() - memberBStart;
-        getTime(memberBEnd);
-        results.push(["Member B", time]);
+        // memberBEnd = new Date() - memberBStart;
+        // getTime(memberBEnd);
+        // results.push(["Member B", time]);
+        b.member = "Member B";
+        b.endTimer = vid.currentTime;
+        results.push(b);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 51){
         $("#member_C").removeClass('active');
-        memberCEnd = new Date() - memberCStart;
-        getTime(memberCEnd);
-        results.push(["Member C", time]);
+        // memberCEnd = new Date() - memberCStart;
+        // getTime(memberCEnd);
+        // results.push(["Member C", time]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 52){
         $("#member_D").removeClass('active');
-        memberDEnd = new Date() - memberDStart;
-        getTime(memberDEnd);
-        results.push(["Member D", time]);
+        // memberDEnd = new Date() - memberDStart;
+        // getTime(memberDEnd);
+        // results.push(["Member D", time]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
@@ -153,7 +169,8 @@ $(document).ready(function() {
 
 // don't trigger the timestamps when click on the nextVideo button
   $('#nextVideo').bind('click', function(e) {
-     e.stopPropagation(); 
+     e.stopPropagation();
+     e.preventDefault();
   });
 
 // don't trigger the timestamps when click on the export button
@@ -161,6 +178,11 @@ $(document).ready(function() {
     e.stopPropagation();
     exportData();
     clearResults(); 
+  });
+
+  // don't trigger the timestamps when click on the loadVideo button
+  $('#loadVideo').bind('click', function(e) {
+     e.preventDefault();
   });
 
 // function that exports array results to excel .xlsx
@@ -177,7 +199,7 @@ $(document).ready(function() {
 // displays time stamps in the HTML page
   function resultsOnScreen(){
           var lastResult = results.length - 1;
-          $("table").append("<tr><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td></tr>");
+          $("table").append("<tr><td>" + results[lastResult].member + "</td><td>" + results[lastResult].startTimer + "</td><td>" + results[lastResult].endTimer + "</td></tr>");
   }
 
 });
