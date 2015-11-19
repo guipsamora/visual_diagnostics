@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
    <meta charset="UTF-8">
-   <title>Visual Diagnostics Tool</title>
+   <title>HPI - Visual Diagnostics Tool</title>
    <link type="text/css" rel="stylesheet" href="style.css"></link>
    <!-- jQuery CDN -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -12,7 +12,7 @@
 </head>
 <body>
    <div class="header">
-   <h1>HPI - Visual Diagnostics Tool</h1><img src="hpi_dschool_logo_web.png" id="logo"/>
+   <h1>Visual Diagnostics Tool</h1><img src="hpi_dschool_logo_web.png" id="logo"/>
    </div>
    <div>
       <h1 class="buttonsTitle">Team Members</h1>
@@ -53,6 +53,9 @@
          <div class="export values">
             <button type="button" class = "buttonText" id="Export">Export .XLS</button>
          </div>
+         <div class="clean data">
+            <button type="button" class = "buttonText" id="clean">Clean Data</button>
+         </div>
       </div>
       <!-- Video tag and source -->
       <!-- <div class = "video"> -->
@@ -63,7 +66,8 @@
       <table>
          <tr>
             <th>Member</th>
-            <th>Time</th>
+            <th>Start Time</th>
+            <th>End Time</th>
          </tr>
       </table> 
    </div>
@@ -71,7 +75,7 @@
    <input type="file" id="videoSource">
    <button class = "buttonText" id="loadVideo">Load Video</button>
    <br><br>
-      
+   <div class = "footer"></div>
    <!-- JavaScript tag -->
    <script src="javascript.js"></script>
 </body>

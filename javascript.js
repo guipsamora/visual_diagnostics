@@ -1,150 +1,106 @@
+var vid = document.getElementById('video1');
+
 $(document).ready(function() {
 
-  var start = 0;
-  var results = [];
-  var team;
-  var hours = 0;
-  var minutes = 0;
-  var seconds = 0;
-  var time = 0;
+  var results = [["Member", "Start Time", "End Time"]];
   var memberAStart = 0, memberBStart = 0, memberCStart = 0, memberDStart = 0, memberEStart = 0, memberFStart = 0, silenceStart = 0;
   var memberAEnd = 0, memberBEnd = 0, memberCEnd = 0, memberDEnd = 0, memberEEnd = 0, memberFEnd = 0, silenceEnd = 0;
   var down = {};
-
-  $("button").click(function(){
-      getTime();
-      // pushes member and minutes since timer started to array results
-      results.push([this.id, time]);
-      // resultsOnScreen();
-      console.log(results);
-   });
-
-// starts the timer when the video begins to play
-  $("video").on("play", function(){
-    start = new Date();
-  })
 
 // Keyboard shortcuts from 1 to 5 to represent the team members 
   $(document).keydown(function (e) {  
     if (e.which === 49) {
         $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
-          memberAStart = new Date();
+          memberAStart = vid.currentTime;
           down['49'] = true; // record that the key's down
         }
     } else if (e.which === 50){
         $("#member_B").addClass('active');
         if (down['50'] == null) {
-          memberBStart = new Date();
+          memberBStart = vid.currentTime;
           down['50'] = true;
         };
     } else if (e.which === 51){
         $("#member_C").addClass('active');
         if (down['51'] == null) {
-          memberCStart = new Date();
+          memberCStart = vid.currentTime;
           down['51'] = true;
         };
     } else if (e.which === 52){
         $("#member_D").addClass('active');
         if (down['52'] == null) {
-          memberDStart = new Date();
+          memberDStart = vid.currentTime;
           down['52'] = true;
         };
     } else if (e.which === 53){
         $("#member_E").addClass('active');
         if (down['53'] == null) {
-          memberEStart = new Date();
+          memberEStart = vid.currentTime;
           down['53'] = true;
         };
     } else if (e.which === 54){
         $("#member_F").addClass('active');
         if (down['54'] == null) {
-          memberFStart = new Date();
+          memberFStart = vid.currentTime;
           down['54'] = true;
         };
-    } else if (e.which === 32){
-        $("#Silence").addClass('activeText');
-        if (down['32'] == null) {
-          silenceStart = new Date();
-          down['32'] = true;
-        };
-     }
+    }
   });
 
 // Keyboard shortcuts from 1 to 5 to represent the team members and space to represent silence
   $(document).keyup(function (e) {  
     if (e.which === 49) {
         $("#member_A").removeClass('active');
-        memberAEnd = new Date() - memberAStart;
-        getTime(memberAEnd);
-        results.push(["Member A", time]);
+        memberAEnd = vid.currentTime;
+        results.push(["Member A", memberAStart, memberAEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 50){
         $("#member_B").removeClass('active'); 
-        memberBEnd = new Date() - memberBStart;
-        getTime(memberBEnd);
-        results.push(["Member B", time]);
+        memberBEnd = vid.currentTime;
+        results.push(["Member B", memberBStart, memberBEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 51){
         $("#member_C").removeClass('active');
-        memberCEnd = new Date() - memberCStart;
-        getTime(memberCEnd);
-        results.push(["Member C", time]);
+        memberCEnd = vid.currentTime;
+        results.push(["Member C", memberCStart, memberCEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 52){
         $("#member_D").removeClass('active');
-        memberDEnd = new Date() - memberDStart;
-        getTime(memberDEnd);
-        results.push(["Member D", time]);
+        memberDEnd = vid.currentTime;
+        results.push(["Member D", memberDStart, memberDEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 53){
         $("#member_E").removeClass('active');
-        memberEEnd = new Date() - memberEStart;
-        getTime(memberEEnd);
-        results.push(["Member E", time]);
+        memberEEnd = vid.currentTime;
+        results.push(["Member E", memberEStart, memberEEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 54){
         $("#member_F").removeClass('active');
-        memberFEnd = new Date() - memberFStart;
-        getTime(memberFEnd);
-        results.push(["Member F", time]);
+        memberFEnd = vid.currentTime;
+        results.push(["Member F", memberFStart, memberFEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
-    } else if (e.which === 32){
-        $("#Silence").removeClass('activeText');
-        silenceEnd = new Date() - silenceStart;
-        getTime(silenceEnd);
-        results.push(["Silence", time]);
-        down[e.which] = null
-        resultsOnScreen();
-        console.log(results);
-    }
+    } 
   });
-
-// get the difference between time ranges
-  function getTime(a){
-    hours = "00";
-    minutes = Math.floor(a / 60000);
-    seconds = ((a % 60000) / 1000);
-    time = hours + ":" + (minutes < 10 ? '0' : '') + minutes + ":" + (seconds < 10 ? '0' : '') + seconds;
-  }
 
 // don't trigger the timestamps when using the keyboards shortcuts
   $('#team_name_input').bind('keyup keydown', function(e) {
      e.stopPropagation(); 
   });
 
+// don't trigger the space default functions
   $(document).keydown(function(e) {
     if (e.which == 32) {
         return false;
@@ -160,24 +116,29 @@ $(document).ready(function() {
   $('#Export').bind('click', function(e) {
     e.stopPropagation();
     exportData();
+  });
+
+  // clean the results array when button is clicked
+  $('#clean').bind('click', function(e) {
     clearResults(); 
+    console.log(results);
   });
 
 // function that exports array results to excel .xlsx
   function exportData() {
-      team = $("#team_name_input").val();
+      var team = $("#team_name_input").val();
       alasql("SELECT * INTO XLSX(\'"+ team + ".xlsx\',{headers:true}) FROM ? ",[results]);
   }
 
 // clear the results array
   function clearResults(){
-    results = [];
+    results = [["Member", "Start Time", "End Time"]];
   }
 
 // displays time stamps in the HTML page
   function resultsOnScreen(){
           var lastResult = results.length - 1;
-          $("table").append("<tr><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td></tr>");
+          $("table").append("<tr><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td><td>" + results[lastResult][2] + "</td></tr>");
   }
 
 });

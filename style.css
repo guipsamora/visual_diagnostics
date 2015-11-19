@@ -33,14 +33,12 @@ body {
 
 video {
   vertical-align: right;
-  margin-left: 60px;
+  margin-left: 17px;
 }
 
 input {
   margin: 5px;
 }
-
-
 
 .teamMember {
   float: left;
@@ -156,14 +154,15 @@ input {
   top: 2px
 }
 
-#Silence {
-  width: 230px;
-  font-size: 25px;
-  font-color: white;
-}
-
 #Export {
   background-color: green;
+  width: 230px;
+  vertical-align: center;
+  font-color:white;
+}
+
+#clean {
+  background-color: blue;
   width: 230px;
   vertical-align: center;
   font-color:white;
@@ -191,17 +190,18 @@ table {
 }
 
 th {
-  font-size: 25px;
-  padding: 10px;
+  font-size: 18px;
+  padding: 7px;
   text-align: center;
   vertical-align: top;
 }
 
 td {
-  font-size: 16px;
+  font-size: 14px;
   padding: 2px;
+  text-align: right;
 }
 
 tr {
-  padding: 10px; 
+  padding: 5px; 
 }
