@@ -20,9 +20,12 @@ $(document).ready(function() {
     this.endTimer = endTimer;
   }
 
-  var a = new MemberAndTime();
+// 
+  var a = new Object();
   var b = new MemberAndTime();
-  console.log(a);
+  var c = new MemberAndTime();
+  // var a = {};
+  // console.log(a);
 
 // starts the timer when the video begins to play
   $("video").on("play", function(){
@@ -35,10 +38,13 @@ $(document).ready(function() {
         $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
           // memberAStart = new Date();
+          // var a = new MemberAndTime();
+          var a = {};
           a.startTimer = vid.currentTime;
+          a.member = "Member A";
+          results.push(a);
           console.log(vid.currentTime); 
           down['49'] = true; // record that the key's down
-
         }
     } else if (e.which === 50){
         $("#member_B").addClass('active');
@@ -86,14 +92,15 @@ $(document).ready(function() {
         $("#member_A").removeClass('active');
         // memberAEnd = new Date() - memberAStart;
         // getTime(memberAEnd);
+        var a = {};
         a.member = "Member A";
-        a.endTimer = vid.currentTime;
+        a.endTimer = vid.currentTime; 
         console.log(vid.currentTime); 
         results.push(a);
         down[e.which] = null
         resultsOnScreen();
-        console.log(results);
         console.log(a);
+        console.log(results);
     } else if (e.which === 50){
         $("#member_B").removeClass('active'); 
         // memberBEnd = new Date() - memberBStart;
