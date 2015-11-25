@@ -139,8 +139,6 @@ $(document).ready(function(){
     return false;
   });
 
-
-
 // function that exports array results to excel .xlsx
   function exportData() {
       var team = $("#team_name_input").val();
@@ -188,8 +186,8 @@ function nextButton(){
   }
 }
 
-var mp4Vid = document.getElementById('mp4Source');
 // Load the video you select from your hard disk
+var mp4Vid = document.getElementById('mp4Source');
 var x;
   
 $("#loadVideo").click(function(){
@@ -206,6 +204,7 @@ $(":file").change(function(){
   var newSource = $(":file").val();
   console.log($(":file").val());
 });
+//End load the video you select from your hard disk
 
 //slow down video button
 $("#slowDownVid").click(function(){

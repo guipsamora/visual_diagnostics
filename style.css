@@ -23,6 +23,7 @@ body {
   width:100%;
   top: 18px;
   left: 10px;
+  font-size: 50px;
 }
 
 .video {
@@ -204,4 +205,8 @@ td {
 
 tr {
   padding: 5px; 
+}
+
+#footer {
+  
 }
