@@ -9,10 +9,30 @@
    <!--  Alasql CDN -->
    <script src="http://alasql.org/console/alasql.min.js"></script>
    <script src="http://alasql.org/console/xlsx.core.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
    <div class="header">
-   <h1>Visual Diagnostics Tool</h1><img src="hpi_dschool_logo_web.png" id="logo"/>
+      <h1>Visual Diagnostics Tool</h1><img src="hpi_dschool_logo_web.png" id="logo"/>
+   </div>
+   <div class="contact text-center">
+        <a href="#openModal">About</a>
+   </div>
+   <div id="openModal" class="modalDialog">
+       <div>
+           <a href="#close" title="Close" class="close">X</a>
+           <h2>Visual Tool - How to use</h2>
+           <p>First load the video, using the Choose File button (below the video frame) and click the button Load Video (three buttons left)
+Start playing the video</p> 
+           <br><p>The keyboard keys from 1 to 6 represent, respectively each Team Member from A to F. When you press the key, the timer starts and when you release the key, the timer finishes. Then the timestamps will appear on a table on the right side.</p>
+           <br><p>If any mistake is made, you can stop the video, delete the timestamp on the right and rewind it using the Rewind 10s button.</p>
+           <br><p>If you want to slow down the video speed, click on the Slow Video button, it will make the video speed to 0.75. Clicking once again will make the video to normal speed.</p>
+           <br><p>After you have finished, write the excel file name in the box above the Export .XLS button and click the Export .XLS button to export the file with the timestamps</p>
+           <br><p>Before loading a new video click on Clean Data</p>
+           <br><p>Choose the next video</p>
+           <p>Check the source code here: <a href="https://github.com/guipsamora/visual_diagnostics">GitHub</a>.</p>
+       </div>
    </div>
    <div>
       <h1 class="buttonsTitle">Team Members</h1>
@@ -41,12 +61,6 @@
          </div>
          <div>
          <br><br>
-<!--          <div class="silence">
-            <button type="button" class = "buttonText" id="Silence">Silence</button>
-         </div>
- -->         <!-- <div class="parallel">
-            <button type="button" class = "buttonText" id="Parallel Talk">Parallel Talk</button>
-         </div> -->
          </div>
          <br><br><br><br><br>
          <input type="text" placeholder="File Name" id="team_name_input" width = "400px"></input>
@@ -78,7 +92,7 @@
    <button class = "buttonText" id="slowDownVid">Slow Video</button>
    <br><br>
    <div id="footer">
-      <p>Created by Axel Meining, Guilherme Samora and Bastien Grasnick</p>
+      <p>Created by Guilherme Samora, Axel Meining and Bastien Grasnick</p>
    </div>
    <div class = "footer"></div>
    <!-- JavaScript tag -->

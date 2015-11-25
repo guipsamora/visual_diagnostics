@@ -1,5 +1,7 @@
 var video = document.getElementById('video1');
 
+if (video.currentTime)
+
 $(document).ready(function(){
 
   var results = [["Member", "Start Time", "End Time"]];
@@ -10,37 +12,37 @@ $(document).ready(function(){
 
 // Keyboard shortcuts from 1 to 5 to represent the team members 
   $(document).keydown(function (e) {  
-    if (e.which === 49) {
+    if (e.which === 49 && video.currentTime !==0) {
         $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
           memberAStart = video.currentTime;
           down['49'] = true; // record that the key's down
         }
-    } else if (e.which === 50){
+    } else if (e.which === 50 && video.currentTime !==0){
         $("#member_B").addClass('active');
         if (down['50'] == null) {
           memberBStart = video.currentTime;
           down['50'] = true;
         };
-    } else if (e.which === 51){
+    } else if (e.which === 51 && video.currentTime !==0){
         $("#member_C").addClass('active');
         if (down['51'] == null) {
           memberCStart = video.currentTime;
           down['51'] = true;
         };
-    } else if (e.which === 52){
+    } else if (e.which === 52 && video.currentTime !==0){
         $("#member_D").addClass('active');
         if (down['52'] == null) {
           memberDStart = video.currentTime;
           down['52'] = true;
         };
-    } else if (e.which === 53){
+    } else if (e.which === 53 && video.currentTime !==0){
         $("#member_E").addClass('active');
         if (down['53'] == null) {
           memberEStart = video.currentTime;
           down['53'] = true;
         };
-    } else if (e.which === 54){
+    } else if (e.which === 54 && video.currentTime !==0){
         $("#member_F").addClass('active');
         if (down['54'] == null) {
           memberFStart = video.currentTime;
@@ -51,42 +53,42 @@ $(document).ready(function(){
 
 // Keyboard shortcuts from 1 to 5 to represent the team members and space to represent silence
   $(document).keyup(function (e) {  
-    if (e.which === 49) {
+    if (e.which === 49 && video.currentTime !==0) {
         $("#member_A").removeClass('active');
         memberAEnd = video.currentTime;
         results.push(["Member A", memberAStart, memberAEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
-    } else if (e.which === 50){
+    } else if (e.which === 50 && video.currentTime !==0){
         $("#member_B").removeClass('active'); 
         memberBEnd = video.currentTime;
         results.push(["Member B", memberBStart, memberBEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
-    } else if (e.which === 51){
+    } else if (e.which === 51 && video.currentTime !==0){
         $("#member_C").removeClass('active');
         memberCEnd = video.currentTime;
         results.push(["Member C", memberCStart, memberCEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
-    } else if (e.which === 52){
+    } else if (e.which === 52 && video.currentTime !==0){
         $("#member_D").removeClass('active');
         memberDEnd = video.currentTime;
         results.push(["Member D", memberDStart, memberDEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
-    } else if (e.which === 53){
+    } else if (e.which === 53 && video.currentTime !==0){
         $("#member_E").removeClass('active');
         memberEEnd = video.currentTime;
         results.push(["Member E", memberEStart, memberEEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
-    } else if (e.which === 54){
+    } else if (e.which === 54 && video.currentTime !==0){
         $("#member_F").removeClass('active');
         memberFEnd = video.currentTime;
         results.push(["Member F", memberFStart, memberFEnd]);
@@ -220,3 +222,45 @@ $("#slowDownVid").click(function(){
 $("#rewind").click(function(){
   video.currentTime = video.currentTime - 10;
 });
+
+(function localFileVideoPlayerInit(win) {
+    var URL = win.URL || win.webkitURL,
+        displayMessage = (function displayMessageInit() {
+            var node = document.querySelector('#message');
+
+            return function displayMessage(message, isError) {
+                node.innerHTML = message;
+                node.className = isError ? 'error' : 'info';
+            };
+        }()),
+
+    playSelectedFile = function playSelectedFileInit(event) {
+            var file = this.files[0];
+            var type = file.type;
+            var videoNode = document.querySelector('#video1');
+            var canPlay = videoNode.canPlayType(type);
+
+            canPlay = (canPlay === '' ? 'no' : canPlay);
+
+            var message = 'Can play type "' + type + '": ' + canPlay;
+            var isError = canPlay === 'no';
+
+            displayMessage(message, isError);
+
+            if (isError) {
+                return;
+            }
+
+            var fileURL = URL.createObjectURL(file);
+
+            videoNode.src = fileURL;
+        },
+        inputNode = document.querySelector('input');
+
+    if (!URL) {
+        displayMessage('Your browser is not ' + '<a href="http://caniuse.com/bloburls">supported</a>!', true);
+        return;
+    }
+
+    inputNode.addEventListener('change', playSelectedFile, false);
+}(window));
