@@ -221,11 +221,14 @@ $("#rewind").click(function(){
   video.currentTime = video.currentTime - 10;
 });
 
+var node = document.querySelector('#message');
+var inputNode = document.querySelector('#videoSource');
+
 (function localFileVideoPlayerInit(win) {
     var URL = win.URL || win.webkitURL;
     
     var displayMessage = (function displayMessageInit() {
-            var node = document.querySelector('#message');
+            
 
             return function displayMessage(message, isError) {
                 node.innerHTML = message;
@@ -255,7 +258,7 @@ $("#rewind").click(function(){
             videoNode.src = fileURL;
         };
 
-    var inputNode = document.querySelector('#videoSource');
+    
 
     if (!URL) {
         displayMessage('Your browser is not ' + '<a href="http://caniuse.com/bloburls">supported</a>!', true);
