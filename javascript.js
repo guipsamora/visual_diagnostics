@@ -1,4 +1,4 @@
-var vid = document.getElementById('video1');
+var video = document.getElementById('video1');
 
 $(document).ready(function(){
 
@@ -13,37 +13,37 @@ $(document).ready(function(){
     if (e.which === 49) {
         $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
-          memberAStart = vid.currentTime;
+          memberAStart = video.currentTime;
           down['49'] = true; // record that the key's down
         }
     } else if (e.which === 50){
         $("#member_B").addClass('active');
         if (down['50'] == null) {
-          memberBStart = vid.currentTime;
+          memberBStart = video.currentTime;
           down['50'] = true;
         };
     } else if (e.which === 51){
         $("#member_C").addClass('active');
         if (down['51'] == null) {
-          memberCStart = vid.currentTime;
+          memberCStart = video.currentTime;
           down['51'] = true;
         };
     } else if (e.which === 52){
         $("#member_D").addClass('active');
         if (down['52'] == null) {
-          memberDStart = vid.currentTime;
+          memberDStart = video.currentTime;
           down['52'] = true;
         };
     } else if (e.which === 53){
         $("#member_E").addClass('active');
         if (down['53'] == null) {
-          memberEStart = vid.currentTime;
+          memberEStart = video.currentTime;
           down['53'] = true;
         };
     } else if (e.which === 54){
         $("#member_F").addClass('active');
         if (down['54'] == null) {
-          memberFStart = vid.currentTime;
+          memberFStart = video.currentTime;
           down['54'] = true;
         };
     }
@@ -53,42 +53,42 @@ $(document).ready(function(){
   $(document).keyup(function (e) {  
     if (e.which === 49) {
         $("#member_A").removeClass('active');
-        memberAEnd = vid.currentTime;
+        memberAEnd = video.currentTime;
         results.push(["Member A", memberAStart, memberAEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 50){
         $("#member_B").removeClass('active'); 
-        memberBEnd = vid.currentTime;
+        memberBEnd = video.currentTime;
         results.push(["Member B", memberBStart, memberBEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 51){
         $("#member_C").removeClass('active');
-        memberCEnd = vid.currentTime;
+        memberCEnd = video.currentTime;
         results.push(["Member C", memberCStart, memberCEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 52){
         $("#member_D").removeClass('active');
-        memberDEnd = vid.currentTime;
+        memberDEnd = video.currentTime;
         results.push(["Member D", memberDStart, memberDEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 53){
         $("#member_E").removeClass('active');
-        memberEEnd = vid.currentTime;
+        memberEEnd = video.currentTime;
         results.push(["Member E", memberEStart, memberEEnd]);
         down[e.which] = null
         resultsOnScreen();
         console.log(results);
     } else if (e.which === 54){
         $("#member_F").removeClass('active');
-        memberFEnd = vid.currentTime;
+        memberFEnd = video.currentTime;
         results.push(["Member F", memberFStart, memberFEnd]);
         down[e.which] = null
         resultsOnScreen();
@@ -171,7 +171,6 @@ $(document).ready(function(){
 });
 
 // Use this part of code if you are going to use the Next Video button
-var myVideo = document.getElementById("video1");
 // PLACE ALL VIDEOS' NAMES HERE
 var videoList = ['big_buck_bunny.mp4','test.mp4','test2.mp4','ChocolateScene.mp4'];
 var index = videoList.indexOf(window.currentVideoName);
@@ -182,17 +181,16 @@ function nextButton(){
 
   if (index === videoList.length){
     index = 0;
-    myVideo.src = videoList[index];
+    video.src = videoList[index];
   } else {
-    myVideo.src = videoList[index];
+    video.src = videoList[index];
     window.currentVideoName = videoList[index];
   }
 }
 
 var mp4Vid = document.getElementById('mp4Source');
-var video = document.getElementById('video1');
 // Load the video you select from your hard disk
-  var x;
+var x;
   
 $("#loadVideo").click(function(){
   x = $(":file").val();
@@ -207,4 +205,18 @@ $("#loadVideo").click(function(){
 $(":file").change(function(){
   var newSource = $(":file").val();
   console.log($(":file").val());
+});
+
+//slow down video button
+$("#slowDownVid").click(function(){
+  if(video.playbackRate = 1){
+    video.playbackRate = 0.75;
+  } else {
+    video.playbackRate = 1
+  }
+});
+    
+//rewind video button
+$("#rewind").click(function(){
+  video.currentTime = video.currentTime - 10;
 });
