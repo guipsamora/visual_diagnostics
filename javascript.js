@@ -1,7 +1,5 @@
 var video = document.getElementById('video1');
 
-if (video.currentTime)
-
 $(document).ready(function(){
 
   var results = [["Member", "Start Time", "End Time"]];
@@ -255,7 +253,7 @@ $("#rewind").click(function(){
 
             videoNode.src = fileURL;
         },
-        inputNode = document.querySelector('input');
+        inputNode = document.querySelector('#videoSource');
 
     if (!URL) {
         displayMessage('Your browser is not ' + '<a href="http://caniuse.com/bloburls">supported</a>!', true);

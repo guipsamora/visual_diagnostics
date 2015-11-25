@@ -4,13 +4,13 @@
    <meta charset="UTF-8">
    <title>HPI - Visual Diagnostics Tool</title>
    <link type="text/css" rel="stylesheet" href="style.css"></link>
+   <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" rel="stylesheet"></link>
    <!-- jQuery CDN -->
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
    <!--  Alasql CDN -->
    <script src="http://alasql.org/console/alasql.min.js"></script>
    <script src="http://alasql.org/console/xlsx.core.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 </head>
 <body>
    <div class="header">
@@ -25,12 +25,12 @@
            <h2>Visual Tool - How to use</h2>
            <p>First load the video, using the Choose File button (below the video frame) and click the button Load Video (three buttons left)
 Start playing the video</p> 
-           <br><p>The keyboard keys from 1 to 6 represent, respectively each Team Member from A to F. When you press the key, the timer starts and when you release the key, the timer finishes. Then the timestamps will appear on a table on the right side.</p>
-           <br><p>If any mistake is made, you can stop the video, delete the timestamp on the right and rewind it using the Rewind 10s button.</p>
-           <br><p>If you want to slow down the video speed, click on the Slow Video button, it will make the video speed to 0.75. Clicking once again will make the video to normal speed.</p>
-           <br><p>After you have finished, write the excel file name in the box above the Export .XLS button and click the Export .XLS button to export the file with the timestamps</p>
-           <br><p>Before loading a new video click on Clean Data</p>
-           <br><p>Choose the next video</p>
+           <p>The keyboard keys from 1 to 6 represent, respectively each Team Member from A to F. When you press the key, the timer starts and when you release the key, the timer finishes. Then the timestamps will appear on a table on the right side.</p>
+           <p>If any mistake is made, you can stop the video, delete the timestamp on the right and rewind it using the Rewind 10s button.</p>
+           <p>If you want to slow down the video speed, click on the Slow Video button, it will make the video speed to 0.75. Clicking once again will make the video to normal speed.</p>
+           <p>After you have finished, write the excel file name in the box above the Export .XLS button and click the Export .XLS button to export the file with the timestamps</p>
+           <p>Before loading a new video click on Clean Data</p>
+           <p>Choose the next video</p>
            <p>Check the source code here: <a href="https://github.com/guipsamora/visual_diagnostics">GitHub</a>.</p>
        </div>
    </div>
@@ -85,7 +85,7 @@ Start playing the video</p>
          </tr>
       </table> 
    </div>
-   <button class = "buttonText" onclick="nextButton()" id="nextVideo">Next Video >></button>
+   <!-- <button class = "buttonText" onclick="nextButton()" id="nextVideo">Next Video >></button> -->
    <input type="file" id="videoSource">
    <button class = "buttonText" id="loadVideo">Load Video</button>
    <button class = "buttonText" id="rewind">Rewind 10s</button>
