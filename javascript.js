@@ -1,11 +1,12 @@
 var vid = document.getElementById('video1');
 
-$(document).ready(function() {
+$(document).ready(function(){
 
   var results = [["Member", "Start Time", "End Time"]];
   var memberAStart = 0, memberBStart = 0, memberCStart = 0, memberDStart = 0, memberEStart = 0, memberFStart = 0, silenceStart = 0;
   var memberAEnd = 0, memberBEnd = 0, memberCEnd = 0, memberDEnd = 0, memberEEnd = 0, memberFEnd = 0, silenceEnd = 0;
   var down = {};
+  var filterArray = [];
 
 // Keyboard shortcuts from 1 to 5 to represent the team members 
   $(document).keydown(function (e) {  
@@ -119,26 +120,52 @@ $(document).ready(function() {
   });
 
   // clean the results array when button is clicked
-  $('#clean').bind('click', function(e) {
+  $('#clean').bind('click', function() {
     clearResults(); 
-    console.log(results);
   });
+
+// removes row entry on the screen and array
+  $('table').on('click', 'button.removebutton', function () {
+    //member in the row
+    // var memberRow = $(this).parent().parent()[0]["children"][0]["innerHTML"];
+    //start time in the row
+    // var startTimeRow = +$(this).parent().parent()[0]["children"][1]["innerHTML"];
+    // end time in the row
+    var endTimeRow = +$(this).parent().parent()[0]["children"][2]["innerHTML"];
+    filterArray.push(endTimeRow);
+    console.log(filterArray);
+    // removes the row on the screen
+    $(this).closest('tr').remove();
+    return false;
+  });
+
+
 
 // function that exports array results to excel .xlsx
   function exportData() {
       var team = $("#team_name_input").val();
+
+      // filters the results array
+      results = results.filter(function(value){
+        return filterArray.indexOf(value[2]) === -1
+      })
+
       alasql("SELECT * INTO XLSX(\'"+ team + ".xlsx\',{headers:true}) FROM ? ",[results]);
   }
 
 // clear the results array
   function clearResults(){
     results = [["Member", "Start Time", "End Time"]];
-  }
+    // clean the results on the page, but keeps the first row
+    $('tr').not(':first').remove();
+    console.log(results);
+  };
 
 // displays time stamps in the HTML page
   function resultsOnScreen(){
           var lastResult = results.length - 1;
-          $("table").append("<tr><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td><td>" + results[lastResult][2] + "</td></tr>");
+          $("table").append("<tr id =" + lastResult + "><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td><td>" + results[lastResult][2] + "</td><td class=\"delete\"><button class=\"removebutton\"><img src=\"delete.png\" height=10px width=10px ></td></tr>");
+          // $("table").append("<tr id =\"row"+lastResult + "\"><td>" + results[lastResult][0] + "</td><td>" + results[lastResult][1] + "</td><td>" + results[lastResult][2] + "</td><td class=\"delete\"><button class=\"removebutton\"><img src=\"delete.png\" height=10px width=10px ></td></tr>");
   }
 
 });
@@ -167,17 +194,17 @@ var video = document.getElementById('video1');
 // Load the video you select from your hard disk
   var x;
   
-  $("#loadVideo").click(function(){
-    x = $(":file").val();
-    x = x.replace(/.*(\/|\\)/, '');
-    console.log(x);
+$("#loadVideo").click(function(){
+  x = $(":file").val();
+  x = x.replace(/.*(\/|\\)/, '');
+  console.log(x);
 
-    console.log(mp4Vid);
-    $(mp4Vid).attr('src', x);
-    video.load();
-  });
+  console.log(mp4Vid);
+  $(mp4Vid).attr('src', x);
+  video.load();
+});
 
-  $(":file").change(function(){
-    var newSource = $(":file").val();
-    console.log($(":file").val());
-  });
+$(":file").change(function(){
+  var newSource = $(":file").val();
+  console.log($(":file").val());
+});
