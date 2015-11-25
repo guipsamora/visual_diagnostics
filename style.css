@@ -207,6 +207,23 @@ tr {
   padding: 5px; 
 }
 
+.contact {
+  position: absolute;
+  top: 5px;
+  left: 10px;
+  width: 100px;
+  height: 50px;
+  background-color: #5A58A3;
+  font-size: 20px;
+  padding-top: 10px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 2px rgba(177,177,177, 0.5);
+}
+
+.contact a {
+  color: #fafafa;
+}
+
 /************
 Modal Box
 ************/
