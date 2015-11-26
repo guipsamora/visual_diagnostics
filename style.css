@@ -218,6 +218,8 @@ tr {
   padding-top: 10px;
   border-radius: 5px;
   box-shadow: 10px 10px 2px rgba(177,177,177, 0.5);
+  text-align: center;
+  text-decoration: none;
 }
 
 .contact a {
@@ -235,7 +237,7 @@ Modal Box
   right: 0;
   bottom: 0;
   left: 0;
-  background: rgba(70,0,0,0.5);
+  background: rgba(100,0,0,0.5);
   z-index: 99999;
   opacity:0;
   -webkit-transition: opacity 400ms ease-in;
@@ -246,6 +248,7 @@ Modal Box
 
 .modalDialog h2 {
   color: #000;
+  text-align: center;
 }
 
 .modalDialog:target {
@@ -255,7 +258,7 @@ Modal Box
 
 .modalDialog > div {
   width: 400px;
-  height: 1000px;
+  height: 520px;
   position: relative;
   margin: 10% auto;
   padding: 5px 20px 13px 20px;
@@ -286,4 +289,10 @@ Modal Box
 
 /************
 End of Modal Box
-************/{}
+************/
+
+#footer {
+  text-align: center; 
+  margin-right: 30px;
+  padding-right: 500px;
+}

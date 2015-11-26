@@ -8,12 +8,13 @@ $(document).ready(function(){
   var down = {};
   var filterArray = [];
 
+
 // Keyboard shortcuts from 1 to 5 to represent the team members 
   $(document).keydown(function (e) {  
     if (e.which === 49 && video.currentTime !==0) {
         $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
-          memberAStart = video.currentTime;
+          memberAStart = video.currentTime + 3510.10;
           down['49'] = true; // record that the key's down
         }
     } else if (e.which === 50 && video.currentTime !==0){
