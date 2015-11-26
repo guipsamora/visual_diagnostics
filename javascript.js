@@ -14,7 +14,7 @@ $(document).ready(function(){
     if (e.which === 49 && video.currentTime !==0) {
         $("#member_A").addClass('active');
         if (down['49'] == null) { // first press
-          memberAStart = video.currentTime + 3510.10;
+          memberAStart = video.currentTime;
           down['49'] = true; // record that the key's down
         }
     } else if (e.which === 50 && video.currentTime !==0){
